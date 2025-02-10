@@ -23,7 +23,7 @@ const resolvers = {
                 // Notificar a los otros microservicios
                 const instances = [
                     'http://localhost:5005/sync-update', // Microservicio de Crear
-                    'http://localhost:5001/sync-update',  // Microservicio de Eliminar
+                    'http://localhost:5008/sync-update',  // Microservicio de Eliminar
                     'http://localhost:5006/sync-update'  // ✅ Microservicio de Leer
                 ];
 
