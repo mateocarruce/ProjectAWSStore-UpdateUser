@@ -1,8 +1,7 @@
 const axios = require('axios');
-const bcrypt = require('bcrypt'); // ✅ Para manejar contraseñas si es necesario
 const bcrypt = require('bcrypt'); // ✅ Importamos bcrypt para hashear la contraseña
 const User = require('../models/user');
-require('dotenv').config(); // ✅ Importamos dotenv para leer las variables del .env
+require('dotenv').config();
 
 const resolvers = {
     Mutation: {
@@ -29,11 +28,15 @@ const resolvers = {
     //                'http://localhost:5006/sync-update'  // ✅ Microservicio de Leer
    //             ];
 
+
+                    // ✅ Definimos las instancias dinámicamente desde el .env
                     const instances = [
                         `http://${process.env.DB_HOST}:5005/sync-update`,  // Microservicio de Crear
                         `http://${process.env.DB_HOST_DELETE}:5008/sync-update`, // Microservicio de Eliminar
                         `http://${process.env.DB_HOST_READ}:5006/sync-update` // Microservicio de Leer
                     ];
+
+                
 
                 for (const instance of instances) {
                     try {
